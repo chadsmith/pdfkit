@@ -25,8 +25,8 @@ By Devon Govett
       if (typeof src === 'string') {
         if (/\.afm$/i.test(src)) {
           this.isAFM = true;
-          this.font = AFMFont.open(src, family);
-          this.registerAFM(src);
+          this.font = AFMFont.open(src);
+          this.registerAFM(family);
           return;
         } else if (/\.(ttf|ttc)$/i.test(src)) {
           this.font = TTFFont.open(src, family);

@@ -13,8 +13,8 @@ class PDFFont
     if typeof src is 'string'
       if /\.afm$/i.test src
         @isAFM = true
-        @font = AFMFont.open src, family
-        @registerAFM src
+        @font = AFMFont.open src
+        @registerAFM family
         return
 
       else if /\.(ttf|ttc)$/i.test src
@@ -41,7 +41,7 @@ class PDFFont
     # create a subset for the font and register
     @subset = new Subset @font
     @registerTTF()
-      
+
   use: (characters) ->
     @subset?.use characters
 
